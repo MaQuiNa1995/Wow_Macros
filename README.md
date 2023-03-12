@@ -43,7 +43,8 @@ Podemos tener una macro para no tener que andar cambiando la barra de habilidade
 Podemos usar los modificadores anteriores 
 ```
 #showtooltip
-/cast [known: Singularidad fantasma] [@mouseover,harm][harm] Singularidad fantasma; [known: Mácula vil] [@cursor] Mácula vil
+#showtooltip
+/cast [@mouseover,harm][harm] [known: Singularidad fantasma] Singularidad fantasma; [@cursor] [known: Mácula vil] [@cursor] Mácula vil
 ```
 
 ## Raciales Mercenario Pvp
