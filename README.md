@@ -39,6 +39,13 @@ Destacar que si en ese momento no conocemos alguno de los hechizos se ignorarán
 /use 14
 ```
 
+Podemos tener una macro para no tener que andar cambiando la barra de habilidades cuando cambiamos los talentos que compartan el mismo slot es decir los que o sabes 1 o sabes el otro como por ejemplo en el caso del brujo aflicción
+Podemos usar los modificadores anteriores 
+```
+#showtooltip
+/cast [known: Singularidad fantasma] [@mouseover,harm][harm] Singularidad fantasma; [known: Mácula vil] [@cursor] Mácula vil
+```
+
 ## Raciales Mercenario Pvp
 
 Tener en 1 mismo botón las 2 raciales horda/alianza para cuando somos mercenarios en este caso la de un goblin/gnomo
