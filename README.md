@@ -6,7 +6,11 @@ Podemos tirar nuestro hechizo a un enemigo si le tenemos el puntero encima sino 
 ```
 #showtooltip Corrupción
 /cast [@mouseover,harm][harm] Corrupción
+```
 
+Podemos omitir el segundo parámetro [harm] para si no tenemos a ningún enemigo bajo el puntero del ratón no lance nada
+Adicionalmente [target=mouseover] es una variante de [@mouseover]
+```
 #showtooltip Helada mental
 /cast [target=mouseover]  Helada mental
 ```
