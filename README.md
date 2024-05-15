@@ -71,11 +71,20 @@ Tirar hechizo de curación sobre un aliado en mouse over y si no tenemos a nadie
 
 ## Utilidad
 
-2 habilidades en secuencia en el mismo boton (con condicion de reset ya sea segundos, por termino de combate etc)
+2 habilidades en secuencia en el mismo boton (con condicion de reset ya sea segundos, por termino de combate etc) 
+Independientemente de que se haya cumplido la condición o no si presionamos en el caso de la siguiente macro, la misma 2 veces se reseteará al principio
+Si tuviera mas hechizos tendríamos que presionar la macro tantas veces como hechizos hayamos definido
+
 ```
 #showtooltip 
 /castsequence reset=combat Transcendencia, Transcendencia: Transferencia
 ```
+- reset=<number> - número de segundos desde que presionaste el botón
+- reset=target - Has cambiado objetivo
+- reset=combat - Has entrado o salido de combate
+- reset=alt - Alt ha sido presionado
+- reset=shift - Shift ha sido presionado
+- reset=ctrl - Ctrl ha sido presionado
 
 Podemos hacer que al pulsar la macro definamos un objetivo predeterminado y tambien hacer uso del chat en todas sus variantes
 - estancia
