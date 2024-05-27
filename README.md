@@ -43,7 +43,6 @@ Podemos tener una macro para no tener que andar cambiando la barra de habilidade
 Podemos usar los modificadores anteriores 
 ```
 #showtooltip
-#showtooltip
 /cast [@mouseover,harm][harm] [known: Singularidad fantasma] Singularidad fantasma; [@cursor] [known: Mácula vil] [@cursor] Mácula vil
 ```
 
@@ -68,10 +67,33 @@ Tirar hechizo de curación sobre un aliado en mouse over y si no tenemos a nadie
 /cast [@mouseover,help,nodead] [] Crisálida vital
 ```
 
-
 ## Utilidad
 
-2 habilidades en secuencia en el mismo boton (con condicion de reset ya sea segundos, por termino de combate etc) 
+### Poción(Dragonflight) + piedra de warlock
+
+Si queremos tener un botón para tener las potis de dragonflight y la piedra de lock con condición de reset de 5 minutos para cuando nos venga el cd de la poción si no hemos usado la piedra de lock
+Adicionalmente si somos warlock podremos presionar `shift` para hacer uso de la habilidad quemar alma y potenciar la piedra de lock
+
+- 5512: Piedra de lock
+- 191380: poción de sanación refrescante (tier 3)
+
+```
+#showtooltip
+/cast [mod:shift] Quemar Alma
+/castsequence reset=300 item:191380, item:5512
+```
+
+y si lo queremos al revés:
+
+```
+#showtooltip
+/cast [mod:shift] Quemar Alma
+/castsequence reset=combat item:5512, item:191380
+```
+
+### N Habilidades en secuencia
+
+N habilidades en secuencia en el mismo boton (con condicion de reset ya sea segundos, por termino de combate etc) 
 Independientemente de que se haya cumplido la condición o no si presionamos en el caso de la siguiente macro, la misma 2 veces se reseteará al principio
 Si tuviera mas hechizos tendríamos que presionar la macro tantas veces como hechizos hayamos definido
 
@@ -86,6 +108,8 @@ Si tuviera mas hechizos tendríamos que presionar la macro tantas veces como hec
 - reset=shift - Shift ha sido presionado
 - reset=ctrl - Ctrl ha sido presionado
 
+### casteo de hechizod en objetivos y anuncios por chat
+
 Podemos hacer que al pulsar la macro definamos un objetivo predeterminado y tambien hacer uso del chat en todas sus variantes
 - estancia
 - hermandad
@@ -98,22 +122,62 @@ Podemos hacer que al pulsar la macro definamos un objetivo predeterminado y tamb
 /gritar Tirando piedra de alma a nombreJugador
 ```
 
-1 botón para montura adecuada a cada situación en este orden y supuesto
+#### Como alternativa podemos tirar la habilidad al `@mouseover` y anunciar un mensaje con el objetivo a quien va dirigido
+
+```
+#showtooltip
+/cast [@mouseover] Piedra de alma
+/gritar Casting Soulstone to %t, dont release !!!!!
+```
+
+### Botón para montura adecuada a cada situación en este orden y supuesto
 
 - si tenemos presionado shift sacaremos el yak para poder reparar/transfigurar
-- si tenemos presionado alt y somos chamanes nos transformaremos en el lobo
+- si estamos en un contenido `indoor` como una mazmorra o banda y somos chamanes nos transformaremos en el lobo espectral
 - si estamos en dragonflight en las afueras sacaremos el dragón azul
 - si estamos en las afueras y podemos volar sacaremos un montura voladora
-- si estamos en las afueras y no se puede volar o en una instancia en la que se pueda sacar montura, sacaremos una terrestre
+- si estamos en las afueras y no se puede volar o en una instancia en la que se pueda sacar montura voladora, sacaremos una terrestre
 
 ```
-#showtooltip Trepador de Corredores
-/cast [mod:shift] Yak de gran expedición; [mod:alt] lobo fantasmal;Draco de las Tierras Altas
-/cast [flyable] Atracador del tiempo infinito;[noflyable] Rinoceronte blindado de pedrisca
+#showtooltip Señor Faldomero
+/cast [mod:shift] Yak de gran expedición; [advflyable] vermis arbórea auspiciosa; [flyable] colmimédula; [indoors] lobo fantasmal; [noflyable] Señor Faldomero
 ```
+Con esta macro es importante saber que en la pelea de Tyndral en Amirdrasil Season 3 no podrás usarla para despues de coger la pluma subirte al dragonriding
 
-Resetear el sonido para que pille el cambio de salida de audio
+### Resetear el sonido para que pille el cambio de salida de audio
 ```
 /run Sound_GameSystem_RestartSoundSystem()
 ```
 
+### Notificar en el chat donde y que rare está activo y con que vida
+
+`/run local c,p,t,m=C_Map,"player","target"m=c.GetBestMapForUnit(p)c.SetUserWaypoint{uiMapID=m,position=c.GetPlayerMapPosition(m,p)}SendChatMessage(format("%%t (%d%%)%s",UnitHealth(t)/UnitHealthMax(t)*100,c.GetUserWaypointHyperlink()),"CHANNEL",nil,1)`
+
+### Habilidades de redirección de aggro (Rogue y Hunter)
+
+Tambien te valdría para cualquier otra habilidad que quieras echarle a un healer o tanque por ejemplo la que da mana al healer del evoker
+
+#### Parte 1
+
+Con esta primera macro la tendremos que ejecutar cuando entramos a un nuevo grupo para definir tendremos que cambiar `Misdirection` por el nombre de la habilidad que necesitemos
+y en el caso de que esa habilidad sea para healer tendremos que cambiar `TANK` por `HEALER`
+
+`/run for i=1,5 do local role=UnitGroupRolesAssigned("party"..i) if role=="TANK" then local name=GetUnitName("party"..i, true) local str="#showtooltip Misdirection\n/cast [@"..name.."] Misdirection" EditMacro("Misdirection",nil,nil,str,1,1) end end`
+
+#### Parte 2
+
+Una vez hayamos ejecutado la macro de la parte 1, ya tendremos lista esta macro para echar la habilidad que queramos al tanque con solo darle a la macro sin nada mas
+es importante revisar los nombres de las habilidades para que coincidan y en el caso de que esta macro sea dirigida a los healer cambiar `Tank` por `Healer`
+
+```
+#showtooltip Misdirection
+/cast [@Tank-Server] Misdirection
+```
+
+### Ver el descanso que tienes en el chat
+
+Para poder ver el descanso que tienes acumulado para la experiencia podemos usar esta macro para imprimir el % que tenemos en el chat (no se envía a nadie solo a ti)
+
+```
+/run local restXP, nextlevelXP, PercentRest = GetXPExhaustion(), UnitXPMax("player"), 0 if restXP then PercentRest = math.floor(restXP / nextlevelXP * 100) end print(restXP and format("Porcentaje de descanso: %%%s",PercentRest) or "No tienes descanso!")
+```
