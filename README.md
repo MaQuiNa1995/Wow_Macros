@@ -9,7 +9,7 @@ Tabla de contenidos
    * [Utilidad](#utilidad)
       + [Poción(Dragonflight) + piedra de warlock](#pocióndragonflight-piedra-de-warlock)
       + [N Habilidades en secuencia](#n-habilidades-en-secuencia)
-      + [casteo de hechizod en objetivos y anuncios por chat](#casteo-de-hechizod-en-objetivos-y-anuncios-por-chat)
+      + [Casteo de hechizos en objetivos y anuncios por chat](#casteo-de-hechizod-en-objetivos-y-anuncios-por-chat)
          - [Como alternativa podemos tirar la habilidad al `@mouseover` y anunciar un mensaje con el objetivo a quien va dirigido](#como-alternativa-podemos-tirar-la-habilidad-al-mouseover-y-anunciar-un-mensaje-con-el-objetivo-a-quien-va-dirigido)
       + [Botón para montura adecuada a cada situación en este orden y supuesto](#botón-para-montura-adecuada-a-cada-situación-en-este-orden-y-supuesto)
       + [Resetear el sonido para que pille el cambio de salida de audio](#resetear-el-sonido-para-que-pille-el-cambio-de-salida-de-audio)
@@ -127,7 +127,7 @@ Si tuviera mas hechizos tendríamos que presionar la macro tantas veces como hec
 - reset=shift - Shift ha sido presionado
 - reset=ctrl - Ctrl ha sido presionado
 
-### casteo de hechizod en objetivos y anuncios por chat
+### Casteo de hechizos en objetivos y anuncios por chat
 
 Podemos hacer que al pulsar la macro definamos un objetivo predeterminado y tambien hacer uso del chat en todas sus variantes
 - estancia
