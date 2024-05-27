@@ -1,5 +1,24 @@
 # Wow_Macros
 
+Tabla de contenidos
+
+- [Wow_Macros](#wow_macros)
+   * [Dps](#dps)
+   * [Raciales Mercenario Pvp](#raciales-mercenario-pvp)
+   * [Healer](#healer)
+   * [Utilidad](#utilidad)
+      + [Poción(Dragonflight) + piedra de warlock](#pocióndragonflight-piedra-de-warlock)
+      + [N Habilidades en secuencia](#n-habilidades-en-secuencia)
+      + [casteo de hechizod en objetivos y anuncios por chat](#casteo-de-hechizod-en-objetivos-y-anuncios-por-chat)
+         - [Como alternativa podemos tirar la habilidad al `@mouseover` y anunciar un mensaje con el objetivo a quien va dirigido](#como-alternativa-podemos-tirar-la-habilidad-al-mouseover-y-anunciar-un-mensaje-con-el-objetivo-a-quien-va-dirigido)
+      + [Botón para montura adecuada a cada situación en este orden y supuesto](#botón-para-montura-adecuada-a-cada-situación-en-este-orden-y-supuesto)
+      + [Resetear el sonido para que pille el cambio de salida de audio](#resetear-el-sonido-para-que-pille-el-cambio-de-salida-de-audio)
+      + [Notificar en el chat donde y que rare está activo y con que vida](#notificar-en-el-chat-donde-y-que-rare-está-activo-y-con-que-vida)
+      + [Habilidades de redirección de aggro (Rogue y Hunter)](#habilidades-de-redirección-de-aggro-rogue-y-hunter)
+         - [Parte 1](#parte-1)
+         - [Parte 2](#parte-2)
+      + [Ver el descanso que tienes en el chat](#ver-el-descanso-que-tienes-en-el-chat)
+
 ## Dps
 
 Podemos tirar nuestro hechizo a un enemigo si le tenemos el puntero encima sino lo casteará sobre el objetivo que tengamos marcado
