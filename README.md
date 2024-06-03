@@ -86,6 +86,13 @@ Tirar hechizo de curación sobre un aliado en mouse over y si no tenemos a nadie
 /cast [@mouseover,help,nodead] [] Crisálida vital
 ```
 
+Botón de Healing o de daño sobre enemigos con mouseover
+```
+#showtooltip
+/cast [@mouseover,harm,nodead] palabra de las sombras: dolor; [@mouseover,help,nodead][] Renovar; 
+```
+Esta macro hará que cuando tengamos el mouse sobre un enemigo tire el hechizo dañino `Palabra de las sombras: dolor` o si estamos encima de un aliado `Renovar` adicionalmente si no se cumplen ninguna de las 2, nos tirará `Renovar` en nosotros mismos
+
 ## Utilidad
 
 ### Poción(Dragonflight) + piedra de warlock
