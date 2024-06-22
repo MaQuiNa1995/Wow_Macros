@@ -159,6 +159,7 @@ Podemos hacer que al pulsar la macro definamos un objetivo predeterminado y tamb
 ### Botón para montura adecuada a cada situación en este orden y supuesto
 
 - si tenemos presionado shift sacaremos el yak para poder reparar/transfigurar
+- si tenemos presionado alt sacaremos el la montura acuática
 - si estamos en un contenido `indoor` como una mazmorra o banda y somos chamanes nos transformaremos en el lobo espectral
 - si estamos en dragonflight en las afueras sacaremos el dragón azul
 - si estamos en las afueras y podemos volar sacaremos un montura voladora
@@ -167,6 +168,9 @@ Podemos hacer que al pulsar la macro definamos un objetivo predeterminado y tamb
 ```
 #showtooltip Señor Faldomero
 /cast [mod:shift] Yak de gran expedición; [advflyable] vermis arbórea auspiciosa; [flyable] colmimédula; [indoors] lobo fantasmal; [noflyable] Señor Faldomero
+
+#showtooltip Señor Faldomero
+/cast [mod:shift] Yak de gran expedición; [mod:alt] Nutrión de guerra amarillo; [advflyable] vermis arbórea auspiciosa; [flyable] colmimédula; [indoors] lobo fantasmal; [indoors] Señor Faldomero;  [noflyable] Señor Faldomero
 ```
 Con esta macro es importante saber que en la pelea de Tyndral en Amirdrasil Season 3 no podrás usarla para despues de coger la pluma subirte al dragonriding
 
