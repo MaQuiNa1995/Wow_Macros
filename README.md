@@ -19,6 +19,8 @@ Tabla de contenidos
          - [Parte 2](#parte-2)
       + [Ver el descanso que tienes en el chat](#ver-el-descanso-que-tienes-en-el-chat)
       + [Comprar en masa en mercader](#comprar-en-masa-mercader)
+      + [Ver progreso de las profundidades que tenemos de la temporada](#ver-progreso-de-las-profundidades-que-tenemos-de-la-temporada)
+      + [Ver cuantas divisas tienes de las maximas posibles](#ver-cuantas-divisas-tienes-de-las-maximas-posibles)
 
 ## Dps
 
@@ -232,4 +234,19 @@ Tambien ten en cuenta la pagina donde estás ya que la posición empieza a conta
 En el caso de la imagen si queremos comprar la `Faltriquera de cristales de resonancia de explorador de profundidades` 30 veces `cantidad` sería 30 y `slot` 19
 por cada pagina en este caso son 10 elementos entonces solo tendríamos que sumar 9 + 10 = 19
 
+### Ver progreso de las profundidades que tenemos de la temporada
+
+```
+/dump C_MajorFactions.GetMajorFactionRenownInfo(C_DelvesUI.GetDelvesFactionForSeason())
+```
+
+### Ver cuantas divisas tienes de las maximas posibles
+
+Para ver de una manera rápida y visual cuantos objetos tienes de alguna divisa de temporada ya sea lingote de bronce de la temporada 4 de Dragonflight o las chispas de cada temporada
+Solo tienes que cambiar `idDivisa` por el numero que corresponde a la divisa que quieres ver los que conseguiste y los maximos que puedes conseguir para la semana actual
+
+```
+/run a=C_CurrencyInfo.GetCurrencyInfo(idDivisa)print("Conseguiste " .. a.totalEarned .. " de " .. a.maxQuantity .. " maximos posibles")
+```
+Como ejemplo las chispas de la temporada de `The war whitin` tienen el id `3132`
 
