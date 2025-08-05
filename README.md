@@ -18,6 +18,7 @@ Tabla de contenidos
          - [Parte 1](#parte-1)
          - [Parte 2](#parte-2)
       + [Ver el descanso que tienes en el chat](#ver-el-descanso-que-tienes-en-el-chat)
+      + [Comprar en masa en mercader](#comprar-en-masa-mercader)
 
 ## Dps
 
@@ -211,3 +212,24 @@ Para poder ver el descanso que tienes acumulado para la experiencia podemos usar
 ```
 /run local restXP, nextlevelXP, PercentRest = GetXPExhaustion(), UnitXPMax("player"), 0 if restXP then PercentRest = math.floor(restXP / nextlevelXP * 100) end print(restXP and format("Porcentaje de descanso: %%%s",PercentRest) or "No tienes descanso!")
 ```
+
+### Comprar en masa en mercader
+
+Para poder hacer una compra en masa de cierto item en un vendedor
+
+#### variables
+`cantidad` es la cantidad de veces que quieres comprar ese item
+`slot` es el slot que ocupa el item en las paginas del vendedor
+
+```
+/script for i=1,cantidad do C_Timer.After(.2*i,function() BuyMerchantItem(slot, 1) end) end
+```
+Para saber el numero de slot que ocupa un item tendremos que contar de izquierda a derecha y de arriba hacia abajo dejo imagen visual:
+
+![alt text](https://github.com/MaQuiNa1995/Wow_Macros/blob/master/imagenes/ejemplo_macro.png?raw=true)
+
+Tambien ten en cuenta la pagina donde estás ya que la posición empieza a contar desde la 1º página
+En el caso de la imagen si queremos comprar la `Faltriquera de cristales de resonancia de explorador de profundidades` 30 veces `cantidad` sería 30 y `slot` 19
+por cada pagina en este caso son 10 elementos entonces solo tendríamos que sumar 9 + 10 = 19
+
+
