@@ -68,6 +68,13 @@ Podemos usar los modificadores anteriores
 /cast [@mouseover,harm][harm] [known: Singularidad fantasma] Singularidad fantasma; [@cursor] [known: Mácula vil] [@cursor] Mácula vil
 ```
 
+o la versión corta:
+
+```
+#showtooltip
+/cast [known:205179] singularidad fantasma; [@cursor,noknown:205179] mácula vil
+```
+
 ## Raciales Mercenario Pvp
 
 Tener en 1 mismo botón las 2 raciales horda/alianza para cuando somos mercenarios en este caso la de un goblin/gnomo
